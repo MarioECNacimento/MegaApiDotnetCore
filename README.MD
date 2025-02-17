@@ -1,133 +1,107 @@
-<h1 align="center">
-  <br />
-  <img
-    src="./_docs/assets/icon.png"
-    alt="Mega Man Robots API"
-    width="150"
-  />
-  <br />
-  <b>Mega Man Robots API</b>
-  <br />
-  <sub
-    ><sup><b>(MEGA-MAN-ROBOTS)</b></sup></sub
-  >
-  <br />
-  <a
-    href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml"
-  >
-    <img
-      src="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml/badge.svg"
-      alt=""
-    />
-  </a>
-  <a href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/releases/latest">
-    <img
-      src="https://img.shields.io/github/v/release/felipeAguiarCode/MegaApiDotnetCore"
-      alt="Latest Release"
-    />
-  </a>
-</h1>
-
-<p align="center">
-  This .NET Core API is designed to serve JSON formatted data about bosses from
-  the Mega Man series. It is a backend service built with .NET Core 3.1 and
-  various modern dependencies for data management and API response handling.
-  <br />
-</p>
-
-<p align="center">
-  Developed with Entity Framework Core and other modern .NET technologies, this
-  project aims to provide a robust API for accessing Mega Man robot data.
-  <br />
-</p>
-
-<p align="center">
-  <br />
-  <img src="./_docs/assets/carbon.png" />
-</p>
-
-## API Endpoints
-
 <table align="center">
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots</td>
-    <td>Returns a list of all robots</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots/{id}</td>
-    <td>Returns details of a specific robot by ID</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/api/v1/robots</td>
-    <td>Endpoint to create a new robot entry</td>
-  </tr>
+    <tr>
+        <td align="center" width="25%">
+            <img src="https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png" alt="Cutman">
+        </td>
+        <td align="center" width="75%">
+          
+# Cutman API
+          
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/user/repository/actions)
+[![Latest release](https://img.shields.io/github/v/release/user/CutmanAPI)](https://github.com/user/CutmanAPI/releases/latest)
+        </td>
+    </tr>
 </table>
 
-## Techniques Used
+## 📌 Visão Geral
+A **Cutman API** permite gerenciar robôs inspirados no universo de Mega Man. Ela fornece endpoints para listar, buscar e adicionar novos robôs. 
 
-<p align="center">
-  - <b>Entity Framework Core:</b> ORM for data management.<br />
-  - <b>RESTful API Design:</b> Ensures clear and effective communication
-  endpoints.<br />
-  - <b>Dependency Injection:</b> Used throughout to promote loose coupling and
-  enhanced testability.<br />
-</p>
+---
+## 📖 Sumário
+1. [Instalação](#instalação)
+2. [Configuração do Projeto](#configuração-do-projeto)
+3. [Endpoints](#endpoints)
+4. [Fluxo de Uso](#fluxo-de-uso)
+5. [Técnicas Utilizadas](#técnicas-utilizadas)
+6. [Contribuições](#contribuições)
+7. [Licença](#licença)
 
-## Dependencies
+---
+## 🛠️ Instalação
+Clone o repositório e execute o projeto:
+```sh
+  git clone https://github.com/user/CutmanAPI.git
+  cd CutmanAPI
+  dotnet run
+```
 
-<table align="center">
-  <tr>
-    <th>Package</th>
-    <th>Version</th>
-    <th>Link</th>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.Design</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.SqlServer</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Newtonsoft.Json</td>
-    <td>12.0.2</td>
-    <td>
-      <a href="https://www.nuget.org/packages/Newtonsoft.Json/12.0.2">NuGet</a>
-    </td>
-  </tr>
-</table>
+---
+## ⚙️ Configuração do Projeto
+| Dependência | Versão | Descrição |
+|-------------|--------|-----------|
+| [Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/) | 3.1.8 | ORM para manipulação de banco de dados |
+| [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) | 3.1.8 | Provedor para SQL Server |
+| [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) | 12.0.2 | Manipulação de JSON |
 
+Configuração de ambiente:
+```sh
+  export ASPNETCORE_ENVIRONMENT=Development
+```
+
+---
+## 🚀 Endpoints
+### 🔍 Listar todos os robôs
+**GET** `/api/v1/robots`
+```sh
+  curl -X GET http://localhost:5000/api/v1/robots
+```
+Resposta esperada:
+```json
+  [
+    {
+      "id": 1,
+      "code": "DLN/DRN-003",
+      "name": "Cutman",
+      "hp": 150
+    }
+  ]
+```
+
+### 🔍 Buscar robô por ID
+**GET** `/api/v1/robots/{id}`
+```sh
+  curl -X GET http://localhost:5000/api/v1/robots/1
+```
+Resposta esperada:
+```json
+  {
+    "id": 1,
+    "code": "DLN/DRN-003",
+    "name": "Cutman",
+    "hp": 150
+  }
+```
+
+### ➕ Criar um novo robô
+**POST** `/api/v1/robots`
+```sh
+  curl -X POST http://localhost:5000/api/v1/robots -H "Content-Type: application/json" -d '{ "name": "NewRobot", "code": "DLN/DRN-004", "hp": 200 }'
+```
+
+---
+## 🔄 Fluxo de Uso
+1. O cliente faz uma requisição **GET** para listar os robôs.
+2. O usuário pode buscar um robô específico através do seu ID.
+3. Para adicionar um novo robô, o usuário envia uma requisição **POST**.
+
+---
+## 📌 Técnicas Utilizadas
+- **Arquitetura MVC** para separação de responsabilidades.
+- **Entity Framework Core** para acesso a banco de dados.
+- **Injeção de Dependência** para desacoplamento do código.
+- **Middleware** para interceptação de requisições.
+
+---
 ## :gear: Arch
 
 ```🌐
@@ -144,7 +118,18 @@ src
 │   ├── 📂 Repositories     [Repository pattern]
 ```
 
-## License This software is licensed under the terms of the [MIT]
+---
+## 🤝 Contribuições
+Contribuições são bem-vindas! Para contribuir:
+1. Faça um fork do repositório.
+2. Crie uma nova branch (`git checkout -b feature/nova-feature`).
+3. Faça suas alterações e commit (`git commit -m 'Adiciona nova feature'`).
+4. Envie um pull request.
 
-⌨️ FelipeAguiar -
-[Github](https://github.com/felipeAguiarCode)
+---
+## 📜 Licença
+Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+
+---
+⌨️ MarioCarvalho -
+[Github](https://github.com/MarioECNacimento)
